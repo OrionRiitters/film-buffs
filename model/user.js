@@ -14,19 +14,12 @@ module.exports = (sequelize, Datatypes) => {
         },
         email: {
             type: Datatypes.STRING,
-            allowNull: false,
-            unique: true
+            allowNull: false
         },
-        usernameHash: {
+        passwordHash: {
             type: Datatypes.STRING
         }
     });
-
-
- //   User.sync({force: true}).then( () => {
-//        console.log('synced user table');
-//    });
-
 
     return User;
 };
