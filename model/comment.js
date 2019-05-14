@@ -2,7 +2,9 @@ module.exports = (sequelize, Datatypes) => {
 
     var Comment = sequelize.define('Comment', {
         UserID: {
-            type: Datatypes.INTEGER
+            type: Datatypes.INTEGER,
+            references: 'User',
+            onDelete: 'CASCADE'
         },
         userForumID: {
             type: Datatypes.INTEGER

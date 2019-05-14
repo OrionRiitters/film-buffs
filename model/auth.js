@@ -1,13 +1,13 @@
+const user = require('./user.js');
+
 module.exports = (sequelize, Datatypes) => {
 
     var Auth = sequelize.define('Auth', {
         userID: {
-            type: Datatypes.INTEGER,
-            primaryKey: true
+            type: Datatypes.STRING
         },
         ipAddress: {
-            type: Datatypes.STRING,
-            primaryKey: true
+            type: Datatypes.STRING
         },
         token: {
             type: Datatypes.STRING,
@@ -15,7 +15,7 @@ module.exports = (sequelize, Datatypes) => {
         }
     });
 
-    Auth.sync({force: false}).then( () => {
+    Auth.sync({force: true}).then( () => {
         console.log('synced auth table');
     });
     return Auth;

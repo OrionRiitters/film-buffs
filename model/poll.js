@@ -14,10 +14,14 @@ module.exports = (sequelize, Datatypes) => {
             type: Datatypes.DATE
         },
         userID: {
-            type: Datatypes.INTEGER
+            type: Datatypes.INTEGER,
+            references: 'User',
+            onDelete: 'CASCADE'
         },
         eventID: {
-            type: Datatypes.INTEGER
+            type: Datatypes.INTEGER,
+            references: 'Event',
+            onDelete: 'CASCADE'
         },
         length: {
             type: Datatypes.DOUBLE
