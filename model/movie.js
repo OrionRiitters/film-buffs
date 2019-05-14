@@ -13,9 +13,5 @@ module.exports = (sequelize, Datatypes) => {
         }
     });
 
-    Movie.sync({force: false}).then( () => {
-        console.log('synced movie table');
-    });
-
     return Movie;
 }; 

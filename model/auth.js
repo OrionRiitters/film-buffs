@@ -1,11 +1,11 @@
-
-
-
 module.exports = (sequelize, Datatypes) => {
 
     var Auth = sequelize.define('Auth', {
-        userID: {
-            type: Datatypes.STRING
+        UserId: {
+            type: Datatypes.INTEGER,
+            allowNull: false,
+            onDelete: 'CASCADE'
+
         },
         ipAddress: {
             type: Datatypes.STRING
@@ -16,8 +16,5 @@ module.exports = (sequelize, Datatypes) => {
         }
     });
 
-    Auth.sync({force: true}).then( () => {
-        console.log('synced auth table');
-    }).catch(err => {console.log(err);});
     return Auth;
 };

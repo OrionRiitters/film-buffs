@@ -9,24 +9,39 @@ sequelize.authenticate()
     .then(() => console.log('connected to postgres'))
     .catch(err => console.log('error connecting', err));
 
+const User = require('./user.js')(sequelize, Sequelize);
+const Auth = require('./auth.js')(sequelize, Sequelize);
+const Comment = require('./comment.js')(sequelize, Sequelize);
+const Event = require('./event.js')(sequelize, Sequelize);
+const Poll = require('./poll.js')(sequelize, Sequelize);
+const Rating = require('./rating.js')(sequelize, Sequelize);
+
+Auth.belongsTo(User, {allowNull: false});
+Comment.belongsTo(Event);
+Comment.belongsTo(User, {allowNull: false});
+Event.hasMany(Comment);
+Event.hasMany(Poll);
+Event.hasMany(Rating);
+Poll.belongsTo(User);
+Poll.belongsTo(Event);
+Rating.belongsTo(User);
+Rating.belongsTo(Event);
+User.hasMany(Auth);
+User.hasMany(Comment);
+User.hasMany(Poll);
+User.hasMany(Rating);
 
 
-const auth = require('./auth.js')(sequelize, Sequelize);
-const user = require('./user.js');
-const comment = require('./comment.js');
-const event = require('./event.js');
-const movie = require('./movie.js');
-const poll = require('./poll.js');
-const rating = require('./rating.js');
+sequelize.sync(({force: true}));
 
-module.exports = {
-    models: {
-        auth: auth,
-        user: user,
-        comment: comment,
-        event: event,
-        movie: movie,
-        poll: poll,
-        rating: rating
-}};
+const models = {
+    Auth: Auth,
+    User: User,
+    Comment: Comment,
+    Event: Event,
+    Poll: Poll,
+    Rating: Rating
+};
+
+module.exports =  models;
 

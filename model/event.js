@@ -13,12 +13,18 @@ module.exports = (sequelize, Datatypes) => {
         upcoming: {
             type: Datatypes.BOOLEAN,
             allowNull: false
+        },
+        movieTitle: {
+            type: Datatypes.STRING
+        },
+        imageURL: {
+            type: Datatypes.STRING
+        },
+        imdbURL: {
+            type: Datatypes.STRING
         }
     });
 
-    Event.sync({force: false}).then( () => {
-        console.log('synced event table');
-    });
 
     return Event;
 }; 

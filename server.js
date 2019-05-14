@@ -4,35 +4,7 @@ const Sequelize = require('sequelize');
 const path = require('path');
 const dotenv = require('dotenv');
 const api_routes = require('./routes/api.js');
-
-// Create environment variable from .env file
-dotenv.config();
-
-// Set up database, this will work locally, not for Heroku.
-sequelize = new Sequelize(process.env.POSTGRES_URI, {dialect: 'postgres'});
-
-sequelize.authenticate()
-    .then(() => console.log('connected to postgres'))
-    .catch(err => console.log('error connecting', err));
-
-const auth = require('./model/auth.js')(sequelize, Sequelize);
-const user = require('./model/user.js')(sequelize, Sequelize);
-const comment = require('./model/comment.js')(sequelize, Sequelize);
-const event = require('./model/event.js')(sequelize, Sequelize);
-const movie = require('./model/movie.js')(sequelize, Sequelize);
-const poll = require('./model/poll.js')(sequelize, Sequelize);
-const rating = require('./model/rating.js')(sequelize, Sequelize);
-
-const models = {
-    auth: auth,
-    user: user,
-    comment: comment,
-    event: event,
-    movie: movie,
-    poll: poll,
-    rating: rating
-};
-
+const models = require('./model/models.js');
 
 const app = express();
 

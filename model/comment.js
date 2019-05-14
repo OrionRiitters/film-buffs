@@ -3,14 +3,8 @@ module.exports = (sequelize, Datatypes) => {
     var Comment = sequelize.define('Comment', {
         UserID: {
             type: Datatypes.INTEGER,
-            references: 'User',
+            allowNull: false,
             onDelete: 'CASCADE'
-        },
-        userForumID: {
-            type: Datatypes.INTEGER
-        },
-        eventForumID: {
-            type: Datatypes.INTEGER
         },
         date: {
             type: Datatypes.DATE
@@ -18,10 +12,6 @@ module.exports = (sequelize, Datatypes) => {
         content: {
             type: Datatypes.STRING
         }
-    });
-
-    Comment.sync({force: false}).then( () => {
-        console.log('synced comment table');
     });
 
     return Comment;

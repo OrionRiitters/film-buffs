@@ -23,9 +23,10 @@ module.exports = (sequelize, Datatypes) => {
     });
 
 
-    User.sync({force: true}).then( () => {
-        console.log('synced user table');
-    });
+ //   User.sync({force: true}).then( () => {
+//        console.log('synced user table');
+//    });
+
 
     return User;
-}; 
+};

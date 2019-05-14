@@ -13,26 +13,19 @@ module.exports = (sequelize, Datatypes) => {
         date: {
             type: Datatypes.DATE
         },
-        userID: {
-            type: Datatypes.INTEGER,
-            references: 'User',
-            onDelete: 'CASCADE'
-        },
-        eventID: {
-            type: Datatypes.INTEGER,
-            references: 'Event',
-            onDelete: 'CASCADE'
-        },
         length: {
             type: Datatypes.DOUBLE
         },
-        hasHiked: {
-            type: Datatypes.BOOLEAN
+        UserID: {
+            type: Datatypes.INTEGER,
+            allowNull: false,
+            onDelete: 'CASCADE'
+        },
+        EventID: {
+            type: Datatypes.INTEGER,
+            allowNull: false,
+            onDelete: 'CASCADE'
         }
-    });
-
-    Poll.sync({force: false}).then( () => {
-        console.log('synced poll table');
     });
 
     return Poll;
