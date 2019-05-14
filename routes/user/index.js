@@ -26,5 +26,7 @@ module.exports = function(User) {
             }
         })
             .catch(err => { console.log(err); });
-    }); 
+    });
+
+    return router;
 };

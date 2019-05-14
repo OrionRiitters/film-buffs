@@ -1,5 +1,10 @@
 const router = require('express').Router();
 const auth = require('./auth/index.js');
+const comment = require('./comment/index.js');
+const event = require('./event/index.js');
+const poll = require('./poll/index.js');
+const rating = require('./rating/index.js');
+const user = require('./user/index.js');
 
 //TODO: Error handling!
 
