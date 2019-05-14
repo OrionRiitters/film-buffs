@@ -1,3 +1,4 @@
+const auth = require('./auth.js');
 
 
 module.exports = (sequelize, Datatypes) => {
@@ -22,6 +23,8 @@ module.exports = (sequelize, Datatypes) => {
         }
     });
 
+
+    User.hasMany(auth);
 
     User.sync({force: true}).then( () => {
         console.log('synced user table');

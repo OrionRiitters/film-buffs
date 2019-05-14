@@ -10,9 +10,6 @@ sequelize.authenticate()
     .then(() => console.log('connected to postgres'))
     .catch(err => console.log('error connecting', err));
 
-const Auth = require('../../model/auth.js')(sequelize, Sequelize);
-
-
 module.exports = function(User) {
     router.post('/', function(req, res, next) {
         User.findOne(

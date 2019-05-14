@@ -1,5 +1,4 @@
-
-
+const user = require('./user.js');
 
 module.exports = (sequelize, Datatypes) => {
 
@@ -18,6 +17,6 @@ module.exports = (sequelize, Datatypes) => {
 
     Auth.sync({force: true}).then( () => {
         console.log('synced auth table');
-    }).catch(err => {console.log(err);});
+    });
     return Auth;
 };
