@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-  <page-header />
-<log-in />
-</div>
+    <page-header />
+    <log-in />
+  </div>
 </template>
 
 <script>
@@ -12,15 +12,14 @@ import LogIn from './components/LogIn.vue'
 export default {
   name: 'app',
   components: {
-      PageHeader,
-      LogIn
-  }
+    PageHeader,
+    LogIn,
+  },
 }
 </script>
 
 <style>
 # app {
-    padding: 0px;
+  padding: 0px;
 }
-
 </style>

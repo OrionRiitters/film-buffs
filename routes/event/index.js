@@ -1,8 +1,7 @@
-const router = require('express').Router();
+const router = require('express').Router()
 
 module.exports = function(models) {
-    router.get('/', function(req, res, next) {
-    });
+  router.get('/', function(req, res, next) {})
 
-    return router;
-};
+  return router
+}
