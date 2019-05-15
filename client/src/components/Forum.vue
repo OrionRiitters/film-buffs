@@ -26,12 +26,12 @@ export default {
     }
   },
   props: {
-token: {
-type: String
-},
-currentEventID: {
-type: Number
-},
+    token: {
+      type: String,
+    },
+    currentEventID: {
+      type: Number,
+    },
   },
   methods: {
     submitComment() {
