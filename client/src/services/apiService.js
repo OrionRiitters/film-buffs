@@ -63,9 +63,11 @@ export default {
     },
     getComments(eventID) {
         return axios.get('/api/comment', {
-            eventID: eventID
+            params: {
+                eventID: eventID
+            }
         }).then(res => {
-            console.log(res.data)
+            return res.data
         })
     }
 }
