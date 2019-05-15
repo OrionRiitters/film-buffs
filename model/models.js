@@ -1,7 +1,4 @@
 const Sequelize = require('sequelize')
-const dotenv = require('dotenv')
-
-//dotenv.config()
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
@@ -33,7 +30,7 @@ User.hasMany(Comment)
 User.hasMany(Poll)
 User.hasMany(Rating)
 
-sequelize.sync({ force: false })
+sequelize.sync({ force: true })
 
 const models = {
   Auth: Auth,
