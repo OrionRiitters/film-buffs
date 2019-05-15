@@ -16,7 +16,7 @@
 
     <!-- DIV containing log in form -->
     <div id="login">
-      <label for="logInUsername">Log In</label>
+      <label for="logInUsername">Username</label>
       <input v-model="logInUsername" id="logInUsername" type="text" />
       <label for="logInPassword">Password</label>
       <input v-model="logInPassword" id="logInPassword" type="password" />
@@ -25,7 +25,7 @@
 
     <div id="sign-up">
       <!-- DIV containing sign up form -->
-      <label for="signUpUsername">Log In</label>
+      <label for="signUpUsername">Username</label>
       <input v-model="signUpUsername" id="signUpUsername" type="text" />
       <label for="signUpPassword">Password</label>
       <input v-model="signUpPassword" id="signUpPassword" type="password" />
@@ -46,7 +46,6 @@ export default {
       signUpUsername: '',
       signUpPassword: '',
       email: '',
-      token: '',
       errors: {
         uniqueConstraintError: false,
         nullFieldsError: false,
@@ -54,9 +53,7 @@ export default {
       },
     }
   },
-  props: {
-    msg: String,
-  },
+
   methods: {
     clearErrors() {
       for (let error in this.errors) {
@@ -73,8 +70,10 @@ export default {
         this.$api_service
           .sendAuth(this.logInUsername, this.logInPassword)
           .then(res => {
-            if (res.hash) {
-              this.token = res.hash
+if (res.hash) {
+console.log(res)
+this.$emit('getToken', res.hash)
+this.$router.push({name: 'Home'})
             } else {
               this.showError('invalidLogInError')
             }
@@ -95,7 +94,6 @@ export default {
             if (res.error == 'UniqueConstraintError') {
               this.showError('uniqueConstraintError')
             } else if (res.statusCode == 200) {
-              this.token = res.hash
               this.clearErrors()
             }
           })

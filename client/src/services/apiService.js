@@ -13,7 +13,6 @@ export default {
         password: password,
       })
       .then(res => {
-        console.log(res)
         return res.data
       })
       .catch(err => {
@@ -27,8 +26,7 @@ export default {
         password: password,
         email: email,
       })
-      .then(res => {
-        console.log(res)
+      .then(res => { 
         if (res.data.name == 'SequelizeUniqueConstraintError') {
           return { error: 'UniqueConstraintError' }
         } else {

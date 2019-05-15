@@ -1,20 +1,32 @@
 <template>
   <div id="app">
-    <page-header />
-    <log-in />
+    <page-header v-on:signOut="signOut" />
+     <RouterView v-on:getToken="getToken"  v-bind:token="token" />
   </div>
 </template>
 
 <script>
 import PageHeader from './components/PageHeader.vue'
-import LogIn from './components/LogIn.vue'
 
 export default {
   name: 'app',
   components: {
-    PageHeader,
-    LogIn,
+    PageHeader
   },
+    data() {
+        return {
+            token: ''
+        }
+    },
+    methods: {
+        getToken(token) {
+            this.token = token
+        },
+        signOut() {
+            this.token = ''
+            this.$router.push({name: 'LogIn'})
+        }
+    }
 }
 </script>
 
