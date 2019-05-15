@@ -2,7 +2,6 @@ const router = require('express').Router()
 const Sequelize = require('sequelize')
 const CryptoJS = require('crypto-js')
 
-
 module.exports = function(models) {
   User = models.User
   router.post('/create', function(req, res, next) {
