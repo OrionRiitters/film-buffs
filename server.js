@@ -8,7 +8,7 @@ const models = require('./model/models.js')
 
 const app = express()
 
-app.use('/', express.static(path.join(__dirname, 'client', 'dist')))
+app.use(express.static(path.join(__dirname, 'client', 'dist')))
 
 app.use(bodyParser.json())
 app.use('/api', api_routes(models))
