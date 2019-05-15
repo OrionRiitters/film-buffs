@@ -35,6 +35,7 @@ export default {
                 .then((res) => {
                     this.getComments()
                 })
+            this.newCommentValue = ''
         },
         getComments() {
             this.$api_service.getComments(this.currentEventID).then(res => {
