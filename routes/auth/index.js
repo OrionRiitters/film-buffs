@@ -46,7 +46,6 @@ module.exports = function(models) {
       },
     })
           .then(row => {
-              console.log(res)
         res.json({
           hash: row.passwordHash,
         })

@@ -67,7 +67,6 @@ export default {
     logIn(event) {
       if (this.logInUsername.length > 0 && this.logInPassword.length > 0) {
 this.clearErrors()
-console.log(`${this.logInUsername} - ${this.logInPassword}`)
         this.$api_service
           .sendAuth(this.logInUsername, this.logInPassword)
           .then(res => {

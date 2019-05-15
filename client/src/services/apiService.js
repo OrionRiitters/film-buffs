@@ -12,11 +12,12 @@ export default {
         username: username,
         password: password,
       })
-      .then(res => {
+          .then(res => {
+              console.log(res)
         return res.data
       })
       .catch(err => {
-        return
+        return err
       })
   },
   createUser(username, password, email) {
