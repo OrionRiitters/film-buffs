@@ -23,7 +23,7 @@ props: {
 token: {
 type: String
 }
-}
+},
   methods: {
     getEvents() {
       this.$api_service.getEvents().then(events => {

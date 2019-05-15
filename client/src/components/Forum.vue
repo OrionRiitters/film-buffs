@@ -26,8 +26,12 @@ export default {
     }
   },
   props: {
-    token: '',
-    currentEventID: '',
+token: {
+type: String
+},
+currentEventID: {
+type: Number
+},
   },
   methods: {
     submitComment() {
