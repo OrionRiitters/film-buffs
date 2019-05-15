@@ -10,20 +10,20 @@
 
 <script>
 export default {
-    name: 'PageHeader',
-    props: {
-        token: {
-            type: String
-        }
+  name: 'PageHeader',
+  props: {
+    token: {
+      type: String,
     },
-    methods: {
-        goHome() {
-            this.$router.push({name: 'Home'})
-        },
-        signOut() {
-            this.$emit('signOut')
-        }
-    }
+  },
+  methods: {
+    goHome() {
+      this.$router.push({ name: 'Home' })
+    },
+    signOut() {
+      this.$emit('signOut')
+    },
+  },
 }
 </script>
 

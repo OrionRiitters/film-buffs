@@ -11,6 +11,8 @@ const user = require('./user/index.js');
 module.exports = function(models) {
     router.use('/auth', auth(models))
     router.use('/event', event(models))
+    router.use('/comment', comment(models))
+    
     router.get('/', (req, res) => {
         res.status(200).json({message: 'Connected!'});
     });
