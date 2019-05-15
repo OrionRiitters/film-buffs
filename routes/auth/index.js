@@ -46,11 +46,9 @@ module.exports = function(models) {
       },
     })
       .then(row => {
-        if (true) {
-          res.json({
-            hash: row.passwordHash,
-          })
-        }
+        res.json({
+          hash: row.passwordHash,
+        })
       })
       .catch(err => {
         console.log(err)
