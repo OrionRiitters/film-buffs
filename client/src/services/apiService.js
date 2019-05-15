@@ -12,11 +12,12 @@ export default {
         username: username,
         password: password,
       })
-      .then(res => {
+          .then(res => {
+              console.log(res)
         return res.data
       })
       .catch(err => {
-        console.log(err)
+        return err
       })
   },
   createUser(username, password, email) {
@@ -41,7 +42,7 @@ export default {
         }
       })
       .catch(err => {
-        console.log(err)
+       return
       })
   },
   getUpcoming() {

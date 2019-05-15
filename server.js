@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.use('/api', api_routes(models))
 
 app.use(function(req, res, next) {
-  res.status(404).send('Not found')
+  res.status(404).send('You have not found what you are looking for.')
 })
 
 app.use(function(err, req, res, next) {

@@ -38,12 +38,10 @@ module.exports = function(models) {
         password: req.body.password,
       },
     })
-      .then(row => {
-        if (true) {
-          res.json({
-            hash: row.passwordHash,
-          })
-        }
+          .then(row => {
+        res.json({
+          hash: row.passwordHash,
+        })
       })
       .catch(err => {
         console.log(err)
