@@ -22,7 +22,9 @@ export default {
     currentEvent: {
       type: Object,
     },
-    token: '',
+      token: {
+          type: String
+      }
   },
   components: {
     Forum,
