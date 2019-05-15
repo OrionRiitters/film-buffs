@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <page-header v-on:signOut="signOut" />
-     <RouterView v-on:getToken="getToken"  v-bind:token="token" />
+    <page-header v-bind:token="token" v-on:signOut="signOut" />
+     <RouterView v-on:getToken="getToken" v-on:upcomingEvent="routeToEvent" v-bind:currentEvent="currentEvent" v-bind:token="token" />
   </div>
 </template>
 
@@ -15,7 +15,8 @@ export default {
   },
     data() {
         return {
-            token: ''
+            token: '',
+            currentEvent: {}
         }
     },
     methods: {
@@ -25,6 +26,10 @@ export default {
         signOut() {
             this.token = ''
             this.$router.push({name: 'LogIn'})
+        },
+        routeToEvent(event) {
+            this.currentEvent = event
+            this.$router.push({name: 'Event'})
         }
     }
 }

@@ -70,10 +70,10 @@ this.clearErrors()
         this.$api_service
           .sendAuth(this.logInUsername, this.logInPassword)
           .then(res => {
-if (res.hash) {
-console.log(res)
-this.$emit('getToken', res.hash)
-this.$router.push({name: 'Home'})
+            if (res.hash) {
+              console.log(res)
+              this.$emit('getToken', res.hash)
+              this.$router.push({ name: 'Home' })
             } else {
               this.showError('invalidLogInError')
             }
@@ -94,9 +94,9 @@ this.$router.push({name: 'Home'})
             if (res.error == 'UniqueConstraintError') {
               this.showError('uniqueConstraintError')
             } else if (res.statusCode == 200) {
-this.clearErrors()
-this.$emit('getToken', res.hash)
-this.$router.push({name: 'Home'})
+              this.clearErrors()
+              this.$emit('getToken', res.hash)
+              this.$router.push({ name: 'Home' })
             }
           })
       } else {

@@ -3,27 +3,27 @@
     <div class="inline">
       <button v-on:click="goHome">Home</button>
       <h1>Film Buffs</h1>
-      <button v-on:click="signOut">Sign Out</button>
+      <button v-if="token" v-on:click="signOut">Sign Out</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'PageHeader',
-    props: {
-        token: {
-            type: String
-        }
+  name: 'PageHeader',
+  props: {
+    token: {
+      type: String,
     },
-    methods: {
-        goHome() {
-            this.$router.push({name: 'Home'})
-        },
-        signOut() {
-            this.$emit('signOut')
-        }
-    }
+  },
+  methods: {
+    goHome() {
+      this.$router.push({ name: 'Home' })
+    },
+    signOut() {
+      this.$emit('signOut')
+    },
+  },
 }
 </script>
 
