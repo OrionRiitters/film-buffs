@@ -94,7 +94,9 @@ this.$router.push({name: 'Home'})
             if (res.error == 'UniqueConstraintError') {
               this.showError('uniqueConstraintError')
             } else if (res.statusCode == 200) {
-              this.clearErrors()
+this.clearErrors()
+this.$emit('getToken', res.hash)
+this.$router.push({name: 'Home'})
             }
           })
       } else {

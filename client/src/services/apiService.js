@@ -30,8 +30,13 @@ export default {
         if (res.data.name == 'SequelizeUniqueConstraintError') {
           return { error: 'UniqueConstraintError' }
         } else {
-          this.sendAuth(res.data.username, res.data.password)
-          return { statusCode: 200 }
+            return this.sendAuth(res.data.username, res.data.password)
+                .then(res => {
+                    return {
+                        statusCode: 200,
+                        hash: res.hash
+                    }
+                })
         }
       })
       .catch(err => {
