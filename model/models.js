@@ -16,14 +16,15 @@ const Poll = require('./poll.js')(sequelize, Sequelize)
 const Rating = require('./rating.js')(sequelize, Sequelize)
 const initializeData = require('./initializeData.js')
 
-User.hasMany(Comment, { foreignKey: 'UserID' })
-Comment.belongsTo(User, { foreignKey: 'UserID' })
+User.hasMany(Comment, {foreignKey: 'UserID'})
+Comment.belongsTo(User, {foreignKey: 'UserID'})
 
 /* Below is just for presentation purposes.
  */
 sequelize.sync({ force: true }).then(() => {
-  initializeData(Event)
-})
+    initializeData(Event)
+}
+)
 
 const models = {
   Auth: Auth,
