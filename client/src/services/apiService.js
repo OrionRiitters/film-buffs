@@ -16,7 +16,7 @@ export default {
         return res.data
       })
       .catch(err => {
-        console.log(err)
+        return
       })
   },
   createUser(username, password, email) {
@@ -40,7 +40,7 @@ export default {
         }
       })
       .catch(err => {
-        console.log(err)
+       return
       })
   },
 }
