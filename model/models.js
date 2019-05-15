@@ -23,8 +23,7 @@ Comment.belongsTo(User, {foreignKey: 'UserID'})
  */
 sequelize.sync({ force: true }).then(() => {
     initializeData(Event)
-}
-)
+})
 
 const models = {
   Auth: Auth,
