@@ -9,8 +9,8 @@ const user = require('./user/index.js');
 //TODO: Error handling!
 
 module.exports = function(models) {
-    router.use('/auth', auth(models));
-
+    router.use('/auth', auth(models))
+    router.use('/event', event(models))
     router.get('/', (req, res) => {
         res.status(200).json({message: 'Connected!'});
     });

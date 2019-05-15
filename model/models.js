@@ -33,7 +33,7 @@ User.hasMany(Comment)
 User.hasMany(Poll)
 User.hasMany(Rating)
 
-sequelize.sync({ force: true })
+sequelize.sync({ force: false })
 
 const models = {
   Auth: Auth,
