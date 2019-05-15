@@ -1,9 +1,7 @@
 const router = require('express').Router()
 const Sequelize = require('sequelize')
-const dotenv = require('dotenv')
 const CryptoJS = require('crypto-js')
 
-const op = Sequelize.Op
 
 module.exports = function(models) {
   Auth = models.Auth
