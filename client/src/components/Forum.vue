@@ -7,7 +7,7 @@
     </div>
     <div class="comment-list" v-for="comment in comments">
       <div class="comment">
-        <h3>{{ comment.userID }} says:</h3>
+        <h3>{{ comment.username }} says:</h3>
         <p>"{{ comment.content }}"</p>
         <p>Posted at: {{ comment.date }}</p>
       </div>
@@ -53,6 +53,9 @@ export default {
   resize: none;
   }
   .comment{
-  border-style: solid;
+      border-style: solid;
+      border-width: 1px;
+      margin: 2px;
+      padding: 4px;
   }
 </style>

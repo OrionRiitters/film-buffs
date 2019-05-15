@@ -18,6 +18,9 @@ const Event = require('./event.js')(sequelize, Sequelize)
 const Poll = require('./poll.js')(sequelize, Sequelize)
 const Rating = require('./rating.js')(sequelize, Sequelize)
 
+User.hasMany(Comment, {foreignKey: 'UserID'})
+Comment.belongsTo(User, {foreignKey: 'UserID'})
+
 sequelize.sync({ force: true })
 
 const models = {

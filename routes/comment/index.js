@@ -3,16 +3,28 @@ const router = require('express').Router()
 module.exports = function(models) {
     let Comment = models.Comment
     let User = models.User
+
     router.get('/', function(req, res, next) {
         return Comment.findAll({
             where: {
                 EventID: req.query.eventID
             },
-            order: ['date', 'DESC']
+            include:[User]
         }).then(rows => {
-            res.json(rows)
+            let response = []
+            for (let row in rows) {
+                response.push(
+                    {
+                        EventID: rows[row].EventID,
+                        date: rows[row].date,
+                        content: rows[row].content,
+                        username: rows[row].User.dataValues.username
+                    })
+            }
+            res.json(response)
         })
     })
+
 
     router.post('/', function(req, res, next) {
          User.findOne({
@@ -24,7 +36,7 @@ module.exports = function(models) {
                 Comment.create({
                     UserID: row.id,
                     date: new Date(),
-                    content: req.body.commentText,
+                    content: req.body.content,
                     EventID: req.body.eventID
                 }).then(row => {
                     res.json(row)

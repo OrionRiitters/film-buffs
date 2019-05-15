@@ -58,7 +58,7 @@ export default {
         return axios.post('/api/comment', {
             token: token,
             eventID: eventID,
-            commentText: comment
+            content: comment
         })
     },
     getComments(eventID) {
