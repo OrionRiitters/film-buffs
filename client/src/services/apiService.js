@@ -43,4 +43,12 @@ export default {
         console.log(err)
       })
   },
+    getUpcoming() {
+        return axios.get('/api/event/upcoming')
+            .then(res => {
+                return res.data
+            }).catch(err => {
+                console.log(err)
+            })
+    }
 }

@@ -3,7 +3,7 @@
     <div class="inline">
       <button v-on:click="goHome">Home</button>
       <h1>Film Buffs</h1>
-      <button v-on:click="signOut">Sign Out</button>
+      <button v-if="token" v-on:click="signOut">Sign Out</button>
     </div>
   </div>
 </template>
