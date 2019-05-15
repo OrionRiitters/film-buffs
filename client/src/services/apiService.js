@@ -26,29 +26,48 @@ export default {
         password: password,
         email: email,
       })
-      .then(res => { 
+      .then(res => {
         if (res.data.name == 'SequelizeUniqueConstraintError') {
           return { error: 'UniqueConstraintError' }
         } else {
-            return this.sendAuth(res.data.username, res.data.password)
-                .then(res => {
-                    return {
-                        statusCode: 200,
-                        hash: res.hash
-                    }
-                })
+          return this.sendAuth(res.data.username, res.data.password).then(
+            res => {
+              return {
+                statusCode: 200,
+                hash: res.hash,
+              }
+            }
+          )
         }
       })
       .catch(err => {
         console.log(err)
       })
   },
-    getUpcoming() {
-        return axios.get('/api/event/upcoming')
-            .then(res => {
-                return res.data
-            }).catch(err => {
-                console.log(err)
-            })
+  getUpcoming() {
+    return axios
+      .get('/api/event/upcoming')
+      .then(res => {
+        return res.data
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  },
+    submitComment(token, eventID, comment) {
+        return axios.post('/api/comment', {
+            token: token,
+            eventID: eventID,
+            content: comment
+        })
+    },
+    getComments(eventID) {
+        return axios.get('/api/comment', {
+            params: {
+                eventID: eventID
+            }
+        }).then(res => {
+            return res.data
+        })
     }
 }

@@ -1,31 +1,32 @@
 <template>
-<div class="event">
-
-  <h1>{{ currentEvent.movieTitle }}</h1>
-  <h2>Where: {{ currentEvent.theater }}</h2>
-  <h2>When: {{ Date(currentEvent.date) }}</h2>
-  <h2>Coffee: {{ currentEvent.coffeeShop }} </h2>
-    <div id="errors">
-    </div>
-
+  <div class="event">
+    <h1>{{ currentEvent.movieTitle }}</h1>
+    <h2>Where: {{ currentEvent.theater }}</h2>
+    <h2>When: {{ currentEvent.date }}</h2>
+    <h2>Coffee: {{ currentEvent.coffeeShop }}</h2>
+    <div id="errors"></div>
+    <Forum v-bind:token="token" v-bind:currentEventID="currentEvent.id" />
   </div>
 </template>
 
-<script>
+    <script>
+    import Forum from './Forum.vue'
 export default {
-    name: 'Event',
+  name: 'Event',
   data() {
     return {
-      errors: {
-      },
+      errors: {},
     }
-},
-props: {
-currentEvent: {
-type: Object
-}
-}
-
+  },
+  props: {
+    currentEvent: {
+      type: Object,
+    },
+      token: ''
+  },
+    components: {
+        Forum
+    }
 }
 </script>
 
