@@ -9,8 +9,8 @@
   </div>
 </template>
 
-    <script>
-    import Forum from './Forum.vue'
+<script>
+import Forum from './Forum.vue'
 export default {
   name: 'Event',
   data() {
@@ -22,11 +22,11 @@ export default {
     currentEvent: {
       type: Object,
     },
-      token: ''
+    token: '',
   },
-    components: {
-        Forum
-    }
+  components: {
+    Forum,
+  },
 }
 </script>
 

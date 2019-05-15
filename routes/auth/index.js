@@ -38,7 +38,7 @@ module.exports = function(models) {
         password: req.body.password,
       },
     })
-          .then(row => {
+      .then(row => {
         res.json({
           hash: row.passwordHash,
         })

@@ -11,52 +11,53 @@
         <p>"{{ comment.content }}"</p>
         <p>Posted at: {{ comment.date }}</p>
       </div>
-      </div>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'Forum',
-    data() {
-        return {
-            errors: {},
-            newCommentValue: '',
-            comments: []
-        }
-    },
-    props: {
-        token: '',
-        currentEventID: ''
-    },
-    methods: {
-        submitComment() {
-            this.$api_service.submitComment(this.token, this.currentEventID, this.newCommentValue)
-                .then((res) => {
-                    this.getComments()
-                })
-            this.newCommentValue = ''
-        },
-        getComments() {
-            this.$api_service.getComments(this.currentEventID).then(res => {
-                this.comments = res
-            })
-        }
-    },
-    beforeMount() {
-        this.getComments()
+  name: 'Forum',
+  data() {
+    return {
+      errors: {},
+      newCommentValue: '',
+      comments: [],
     }
+  },
+  props: {
+    token: '',
+    currentEventID: '',
+  },
+  methods: {
+    submitComment() {
+      this.$api_service
+        .submitComment(this.token, this.currentEventID, this.newCommentValue)
+        .then(res => {
+          this.getComments()
+        })
+      this.newCommentValue = ''
+    },
+    getComments() {
+      this.$api_service.getComments(this.currentEventID).then(res => {
+        this.comments = res
+      })
+    },
+  },
+  beforeMount() {
+    this.getComments()
+  },
 }
 </script>
 
 <style scoped>
-  textarea {
+textarea {
   resize: none;
-  }
-  .comment{
-      border-style: solid;
-      border-width: 1px;
-      margin: 2px;
-      padding: 4px;
-  }
+}
+.comment {
+  border-style: solid;
+  border-width: 1px;
+  margin: 2px;
+  padding: 4px;
+}
 </style>

@@ -3,7 +3,7 @@
     <div id="errors"></div>
 
     <div id="navigation">
-      <button>View Past Events</button>
+      <button v-on:click="pastEvents">View Past Events</button>
       <button v-on:click="upcomingEvent">View Upcoming Event</button>
       <button>View your profile</button>
     </div>
@@ -41,6 +41,9 @@ export default {
         .catch(err => {
           console.log(err)
         })
+    },
+    pastEvents() {
+      this.$router.push({ name: 'PastEvents' })
     },
   },
   beforeMount() {

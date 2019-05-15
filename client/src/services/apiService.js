@@ -12,8 +12,8 @@ export default {
         username: username,
         password: password,
       })
-          .then(res => {
-              console.log(res)
+      .then(res => {
+        console.log(res)
         return res.data
       })
       .catch(err => {
@@ -42,7 +42,7 @@ export default {
         }
       })
       .catch(err => {
-       return
+        return
       })
   },
   getUpcoming() {
@@ -55,20 +55,27 @@ export default {
         console.log(err)
       })
   },
-    submitComment(token, eventID, comment) {
-        return axios.post('/api/comment', {
-            token: token,
-            eventID: eventID,
-            content: comment
-        })
-    },
-    getComments(eventID) {
-        return axios.get('/api/comment', {
-            params: {
-                eventID: eventID
-            }
-        }).then(res => {
-            return res.data
-        })
-    }
+  getEvents() {
+    return axios.get('/api/event').then(res => {
+      return res.data
+    })
+  },
+  submitComment(token, eventID, comment) {
+    return axios.post('/api/comment', {
+      token: token,
+      eventID: eventID,
+      content: comment,
+    })
+  },
+  getComments(eventID) {
+    return axios
+      .get('/api/comment', {
+        params: {
+          eventID: eventID,
+        },
+      })
+      .then(res => {
+        return res.data
+      })
+  },
 }

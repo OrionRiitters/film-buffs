@@ -14,26 +14,16 @@ const Comment = require('./comment.js')(sequelize, Sequelize)
 const Event = require('./event.js')(sequelize, Sequelize)
 const Poll = require('./poll.js')(sequelize, Sequelize)
 const Rating = require('./rating.js')(sequelize, Sequelize)
+const initializeData = require('./initializeData.js')
 
-User.hasMany(Comment, {foreignKey: 'UserID'})
-Comment.belongsTo(User, {foreignKey: 'UserID'})
+User.hasMany(Comment, { foreignKey: 'UserID' })
+Comment.belongsTo(User, { foreignKey: 'UserID' })
 
 /* Below is just for presentation purposes.
  */
 sequelize.sync({ force: true }).then(() => {
-Event.create(
-    {
-        id: 5,
-        theater: 'AMC San Diego',
-        date: Date(),
-        coffeeShop: 'Starbucks on Johnson St.',
-        upcoming: true,
-        movieTitle: 'Bee Movie 2',
-        createdAt: Date(),
-        updatedAt: Date()
-    }
-)}
-)
+  initializeData(Event)
+})
 
 const models = {
   Auth: Auth,
