@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const Sequelize = require('sequelize')
 const path = require('path')
-const dotenv = require('dotenv')
 const api_routes = require('./routes/api.js')
 const models = require('./model/models.js')
 
