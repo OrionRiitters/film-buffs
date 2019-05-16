@@ -7,26 +7,6 @@ A social media web app for a monthly movie viewing club! Includes user profiles,
 ```
 npm install
 ```
+Development branch is used to run project locally. Create a .env file in root containing "POSTGRES_URI=[URI here]"
+https://www.postgresql.org/docs/9.3/tutorial-install.html <- Helpful for installing a local postgres database
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
